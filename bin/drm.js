@@ -2,4 +2,6 @@
 
 const execSync = require('child_process').execSync;
 
-execSync( `docker-compose rm -f`, { stdio: 'inherit' });
+let args = Array.prototype.slice.call( process.argv, 2 ).join( ' ' );
+
+execSync( `docker-compose rm ${args}`, { stdio: 'inherit' });
