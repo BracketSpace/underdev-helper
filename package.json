@@ -1,0 +1,33 @@
+{
+  "name": "underdev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BracketSpace/underdev-helper.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "version": "git add -A",
+    "postversion": "git push && git push --tags"
+  },
+  "author": "Jakub Mikita <jakub@underdev.it>",
+  "license": "MIT",
+  "bin": {
+    "underdev": "./index.js",
+    "dup": "./bin/dup.js",
+    "dupd": "./bin/dupd.js",
+    "ds": "./bin/ds.js",
+    "drm": "./bin/drm.js",
+    "dwp": "./bin/dwp.js",
+    "dset": "./bin/dset.js"
+  },
+  "preferGlobal": true,
+  "dependencies": {
+    "command-line-usage": "^5.0.5"
+  }
+}
