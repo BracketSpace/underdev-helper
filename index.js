@@ -10,6 +10,7 @@ const sections = [
   {
     header: 'Command list',
     content: [
+      { name: 'dpr', summary: 'Creates new project.' },
       { name: 'dup', summary: 'Starts docker-compose.' },
       { name: 'dupd', summary: 'Starts docker-compose in background.' },
       { name: 'ds', summary: 'Stops docker-compose.' },

@@ -24,10 +24,16 @@
     "ds": "./bin/ds.js",
     "drm": "./bin/drm.js",
     "dwp": "./bin/dwp.js",
-    "dset": "./bin/dset.js"
+    "dset": "./bin/dset.js",
+    "dpr": "./bin/dpr.js"
   },
   "preferGlobal": true,
   "dependencies": {
-    "command-line-usage": "^5.0.5"
+    "chalk": "^2.4.1",
+    "command-line-usage": "^5.0.5",
+    "fs-extra": "^7.0.0",
+    "inquirer": "^6.2.0",
+    "wait-on": "^3.1.0",
+    "write-yaml": "^1.0.0"
   }
 }
