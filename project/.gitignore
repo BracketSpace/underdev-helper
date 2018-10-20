@@ -1,6 +1,5 @@
 ### Project specific ###
-mysqldump.sh
-db/
+/env/snapshots
 *.log
 *node_modules
 public

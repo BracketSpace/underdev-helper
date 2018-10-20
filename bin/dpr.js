@@ -54,10 +54,10 @@ const project = async function() {
 	    		],
 	    		'volumes': [
 	                './public:/var/www/html',
-	                './config/phpconf.ini:/usr/local/etc/php/conf.d/phpconf.ini',
-	                './config/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini',
-	                './config/cert/ssl-cert.key:/etc/ssl/private/ssl-cert-snakeoil.key',
-	                './config/cert/ssl-cert.pem:/etc/ssl/certs/ssl-cert-snakeoil.pem'
+	                './env/config/phpconf.ini:/usr/local/etc/php/conf.d/phpconf.ini',
+	                './env/config/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini',
+	                './env/config/cert/ssl-cert.key:/etc/ssl/private/ssl-cert-snakeoil.key',
+	                './env/config/cert/ssl-cert.pem:/etc/ssl/certs/ssl-cert-snakeoil.pem'
 	            ],
 	            'environment': {
 	                'WORDPRESS_DB_PASSWORD': 'docker'
@@ -82,6 +82,23 @@ const project = async function() {
 	    	}
 	    }
 	}
+
+	let snapshots = {
+	    'wpsnapshots': {
+    		'image': '10up/wpsnapshots',
+    		'links': [
+    			'db:mysql'
+    		],
+    		'volumes': [
+                './public:/var/www/html',
+                './env/snapshots:/home/wpsnapshots/.wpsnapshots'
+            ],
+            'depends_on': [
+                'db',
+                'wordpress'
+            ]
+    	}
+	};
 
 	let network_config = {
 	    'networks': {
@@ -114,6 +131,12 @@ const project = async function() {
 	    when: function( answers ) {
 	        return true === answers.existing_network;
 	    }
+	},
+	{
+	    name: 'use_snapshots',
+	    type: 'confirm',
+	    message: 'Use WP Snapshots?',
+	    default: true
 	},
 	{
 	    name: 'git_project',
@@ -231,6 +254,10 @@ const project = async function() {
     if ( true === answers.existing_network ) {
     	network_config.networks.default.external.name = answers.existing_network_name;
     	config = Object.assign( config, network_config );
+    }
+
+    if ( true === answers.use_snapshots ) {
+    	config.services = Object.assign( config.services, snapshots );
     }
 
     console.log( chalk.green( 'All config set!' ) );
