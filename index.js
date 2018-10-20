@@ -15,6 +15,7 @@ const sections = [
 			{ name: 'dupd', summary: 'Starts docker-compose in background.' },
 			{ name: 'ds', summary: 'Stops docker-compose.' },
 			{ name: 'drm', summary: 'Removes docker-compose containers.' },
+			{ name: 'dd', summary: 'Stops and removes docker-compose containers.' },
 			{ name: 'dwp', summary: 'Executes the wp-cli command inside wordpress container. Usage: dwp core version' },
 			{ name: 'dset', summary: 'Sets up WordPress - cleans default content and unused plugins and themes, sets up permalinks' },
 			{ name: 'dsnap', summary: 'Handles WP Snapshots. You can use without explicit configuration, ie: dsnap push' },
