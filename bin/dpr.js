@@ -57,7 +57,8 @@ const project = async function() {
 	                './env/config/phpconf.ini:/usr/local/etc/php/conf.d/phpconf.ini',
 	                './env/config/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini',
 	                './env/config/cert/ssl-cert.key:/etc/ssl/private/ssl-cert-snakeoil.key',
-	                './env/config/cert/ssl-cert.pem:/etc/ssl/certs/ssl-cert-snakeoil.pem'
+	                './env/config/cert/ssl-cert.pem:/etc/ssl/certs/ssl-cert-snakeoil.pem',
+	                './database:/var/lib/mysql'
 	            ],
 	            'environment': {
 	                'WORDPRESS_DB_PASSWORD': 'docker'
