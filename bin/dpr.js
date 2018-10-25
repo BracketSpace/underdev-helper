@@ -57,8 +57,7 @@ const project = async function() {
 	                './env/config/phpconf.ini:/usr/local/etc/php/conf.d/phpconf.ini',
 	                './env/config/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini',
 	                './env/config/cert/ssl-cert.key:/etc/ssl/private/ssl-cert-snakeoil.key',
-	                './env/config/cert/ssl-cert.pem:/etc/ssl/certs/ssl-cert-snakeoil.pem',
-	                './database:/var/lib/mysql'
+	                './env/config/cert/ssl-cert.pem:/etc/ssl/certs/ssl-cert-snakeoil.pem'
 	            ],
 	            'environment': {
 	                'WORDPRESS_DB_PASSWORD': 'docker'
@@ -72,7 +71,10 @@ const project = async function() {
 	    		'image': 'mysql',
 	            'environment': {
 	                'MYSQL_ROOT_PASSWORD': 'docker'
-	            }
+	            },
+	            'volumes': [
+	                './database:/var/lib/mysql'
+	            ],
 	    	},
 	    	'mailhog': {
 	    		'image': 'mailhog/mailhog',
