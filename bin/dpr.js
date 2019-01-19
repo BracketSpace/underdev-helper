@@ -55,9 +55,7 @@ const project = async function() {
 	    		'volumes': [
 	                './public:/var/www/html',
 	                './env/config/phpconf.ini:/usr/local/etc/php/conf.d/phpconf.ini',
-	                './env/config/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini',
-	                './env/config/cert/ssl-cert.key:/etc/ssl/private/ssl-cert-snakeoil.key',
-	                './env/config/cert/ssl-cert.pem:/etc/ssl/certs/ssl-cert-snakeoil.pem'
+	                './env/config/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini'
 	            ],
 	            'environment': {
 	                'WORDPRESS_DB_PASSWORD': 'docker'
@@ -68,7 +66,10 @@ const project = async function() {
 	            ]
 	    	},
 	    	'db': {
-	    		'image': 'mysql',
+	    		'image': 'mysql:5.7',
+	    		'ports': [
+	    			'3306:3306'
+	    		],
 	            'environment': {
 	                'MYSQL_ROOT_PASSWORD': 'docker'
 	            },
@@ -322,7 +323,7 @@ const project = async function() {
 			],
 			delay: 3000,
 			interval: 400,
-			timeout: 20000
+			timeout: 30000
 		} );
 
 		let wp_url = answers.setup_wordpress_ssl ? 'https://' + answers.hostname : 'http://' + answers.hostname;

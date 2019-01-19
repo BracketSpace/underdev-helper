@@ -26,15 +26,20 @@
     "dwp": "./bin/dwp.js",
     "dset": "./bin/dset.js",
     "dpr": "./bin/dpr.js",
-    "dsnap": "./bin/dsnap.js"
+    "dsnap": "./bin/dsnap.js",
+    // "denv": "./bin/denv.js"
   },
   "preferGlobal": true,
   "dependencies": {
+    "async": "^2.6.1",
     "chalk": "^2.4.1",
     "command-line-usage": "^5.0.5",
     "fs-extra": "^7.0.0",
     "inquirer": "^6.2.0",
+    "node-zip": "^1.1.1",
+    "simple-git": "^1.105.0",
     "wait-on": "^3.1.0",
-    "write-yaml": "^1.0.0"
+    "write-yaml": "^1.0.0",
+    "yamljs": "^0.3.0"
   }
 }
