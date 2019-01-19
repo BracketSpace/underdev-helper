@@ -1,6 +1,6 @@
 {
   "name": "underdev",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Set of development commands for WordPress on Docker",
   "main": "./index.js",
   "directories": {
