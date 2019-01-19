@@ -26,8 +26,7 @@
     "dwp": "./bin/dwp.js",
     "dset": "./bin/dset.js",
     "dpr": "./bin/dpr.js",
-    "dsnap": "./bin/dsnap.js",
-    // "denv": "./bin/denv.js"
+    "dsnap": "./bin/dsnap.js"
   },
   "preferGlobal": true,
   "dependencies": {
